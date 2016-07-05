@@ -1,0 +1,30 @@
+{
+  "name": "gprod",
+  "version": "1.0.0",
+  "description": "Keep track of your git pushes per day with Pushbullet",
+  "main": "index.js",
+  "dependencies": {
+    "async": "^2.0.0-rc.6",
+    "github": "^2.1.0",
+    "moment": "^2.14.1",
+    "pushbullet": "^1.4.3"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jaredallard/gprod.git"
+  },
+  "keywords": [
+    "pushbullet",
+    "github"
+  ],
+  "author": "Jared Allard <jaredallard@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jaredallard/gprod/issues"
+  },
+  "homepage": "https://github.com/jaredallard/gprod#readme"
+}
