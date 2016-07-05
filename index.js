@@ -6,7 +6,9 @@ const Pushbullet = require('pushbullet');
 const Github     = require('github');
 const moment     = require('moment');
 
-let API_KEY = require('./config.json').API_KEY;
+
+const CONFIG = require('./config.json');
+let API_KEY  = CONFIG.API_KEY;
 
 const Pusher = new Pushbullet(API_KEY);
 const github = new Github();
@@ -26,7 +28,7 @@ let GLOBAL_PUSH = false;
 
 const TIMER = () => {
   github.activity.getEventsForUser({
-    user: 'jaredallard'
+    user: CONFIG.USERNAME
   }, (err, res) => {
     let pushes = [];
     res.forEach(event => {
@@ -45,12 +47,13 @@ const TIMER = () => {
     let neardaytwo = false;
     pushes.forEach(push => {
       let from_now = moment(push.date).fromNow();
-
+      
       if(from_now.match(/hours ago/)) {
         GLOBAL_PUSH = false; // reset 1 day alert.
         let howmany = parseInt(/(\d?\d) hours ago/g.exec(from_now)[1]);
 
-        if(howmany >= 20  {
+
+        if(howmany >= 20)  {
           if(howmany == 20 || howmany == 22) {
             sendPush('Hurry up, you have only a few more hours left to push a commit.')
           }
